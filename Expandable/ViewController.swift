@@ -120,6 +120,7 @@ extension ViewController : UITableViewDelegate{
         shouldExpandAndShowSubRows = true
       }
       
+      //將新的開啟狀態寫回cellDescriptors（之後再次點擊才能做出正確反映）
       cellDescriptors[indexPath.section][indexOfTappedRow].setValue(shouldExpandAndShowSubRows, forKey: "isExpanded")
       
       for i in (indexOfTappedRow + 1)...(indexOfTappedRow + (cellDescriptors[indexPath.section][indexOfTappedRow]["additionalRows"] as! Int)) {
