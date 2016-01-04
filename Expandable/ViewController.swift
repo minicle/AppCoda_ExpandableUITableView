@@ -111,8 +111,11 @@ extension ViewController : UITableViewDelegate{
     
     let indexOfTappedRow = visibleRowsPerSection[indexPath.section][indexPath.row]
     
+    //判斷Cell是否能展開
     if cellDescriptors[indexPath.section][indexOfTappedRow]["isExpandable"] as! Bool == true {
       var shouldExpandAndShowSubRows = false
+      
+      //能展開的Cell尚未展開
       if cellDescriptors[indexPath.section][indexOfTappedRow]["isExpanded"] as! Bool == false {
         shouldExpandAndShowSubRows = true
       }
@@ -144,7 +147,6 @@ extension ViewController : UITableViewDelegate{
         
       }
     }
-    
     
     getIndicesOfVisibleRows()
     tblExpandable.reloadSections(NSIndexSet(index: indexPath.section), withRowAnimation: UITableViewRowAnimation.Fade)
